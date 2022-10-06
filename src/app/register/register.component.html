@@ -1,0 +1,52 @@
+<div class="container">
+    <form [formGroup]="formularioUsuario" (ngSubmit)="contrIguales()">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required placeholder="Juanito" formControlName="nombre" />
+
+        <p *ngIf="formularioUsuario.get('nombre')?.errors?.['required']">este campo es requerido</p>
+
+        <br>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" required placeholder="Perez" formControlName="apellido"/>
+
+        <br>
+
+        <label for="usuario">Nombre de Usuario</label>
+        <input type="text" name="usuario" id="usuario" formControlName="usuario" >
+
+        <br>
+
+        <label for="pais">pais</label>
+        <input type="text" name="pais" id="pais" required formControlName="pais">
+
+        <br>
+
+        <label for="ciudad">ciudad</label>
+        <input type="text" name="ciudad" id="ciudad" required formControlName="ciudad">
+
+        <br>
+
+        <label for="contrasena">Contraseña</label>
+        <input type="password" name="contrasena" id="contrasena" required formControlName="contrasena">
+        
+        <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']">tiene que tener mas de 5</p>
+
+        <br>
+
+        <label for="repContrasena">Confirmar Contraseña</label>
+        <input type="password" name="repContrasena" id="repContrasena" formControlName="contrasena2">
+        
+        <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']">tiene que tener mas de 5</p>
+        <p *ngIf="!contrasenasIguales">Las contraseñas tienen que ser iguales</p>
+        <br>
+
+
+        <button type="submit" [disabled]="formularioUsuario.invalid" routerLink="http://localhost:3000/api/user">
+          Registrarse</button>
+    </form>
+    <!-- https://desarrolloweb.com/articulos/servicios-angular.html
+    https://angular.io/tutorial/toh-pt4
+https://angular.io/guide/architecture-services -->
+    
