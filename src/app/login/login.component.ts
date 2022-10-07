@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {}
+  //inicio sesion
 
   InicioSesion(event: Event) {
     event.preventDefault();
