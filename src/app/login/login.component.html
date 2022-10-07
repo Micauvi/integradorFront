@@ -1,24 +1,32 @@
 <div class="container-LogIn">
-  <form >
+  <form (ngSubmit)="InicioSesion($event)" [formGroup]="formularioUsuario" >
     <label>
       Nombre de Usuario
-      <input type="text" name="usuario" />
+      <input type="text" name="usuario" formControlName="usuario" />
     </label>
+    <p *ngIf="formularioUsuario.get('nombre')?.errors?.['required']">
+      este campo es requerido
+    </p>
     <br />
     <label
       >Contraseña
-      <input type="password" name="contrasena" />
+      <input type="password" name="contrasena" formControlName="contrasena" />
     </label>
+    <p *ngIf="formularioUsuario.get('contrasena')?.errors?.['required']">
+      este campo es requerido
+    </p>
     <br />
     <div>
       <button type="submit" id="boton" >
-       <a href="http://localhost:3000/login"> Enviar</a>
+         Enviar
       </button>
     </div>
 
     <p>Aun no esta registrado?</p>
   </form>
   <nav>
-    <button routerLink="/registro">Registrarse</button>
+    <button routerLink="registro">
+      Registrarse
+    </button>
   </nav>
 </div>

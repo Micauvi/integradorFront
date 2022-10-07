@@ -1,9 +1,13 @@
 export interface user{
-    id:number
-    nombre:string
-    apellido:string
-    usuario:string
-    contrasena:number
-    pais:string
-    ciudad:string
+   
+    NOMBRE:string
+    APELLIDO:string
+    USUARIO:string
+    CONTRASENA:number
+    PAIS:string
+    CIUDAD:string
+}
+export interface userLogin{
+    USUARIO:string
+    CONTRASENA:number
 }

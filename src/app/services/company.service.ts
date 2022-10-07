@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { user } from '../users/user';
+import { user,userLogin } from '../users/user';
+import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-
+  
 export class CompanyService {
-  API_URL = 'http://localhost:3000/api'
+  API_URL = 'http://localhost:3000/'
+  
   
   constructor(private http: HttpClient) { }
   
-  getUser(){
-    return this.http.get(`${this.API_URL}/users`)
+  guardarGente(user:user):Observable<void>{
+    return this.http.post<void>(this.API_URL + 'api/user', user);
   }
-  saveUser(user: user){
-    return this.http.post(`${this.API_URL}/users`, user)
+
+  LogIn(usuario:userLogin):Observable<void>{
+    return this.http.post<void>(this.API_URL + 'login', usuario); 
   }
+  
 
 
 }

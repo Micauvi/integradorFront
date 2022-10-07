@@ -7,8 +7,8 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'http://localhost:3000/login',component: LoginComponent},
-  {path: 'http://localhost:/api/user', component: RegisterComponent},
+  {path: 'login',component: LoginComponent},
+  {path: 'api/user', component: RegisterComponent},
   {path:'http://localhost:3000/api/users', component: AccountComponent},
   {path:'registro', component:RegisterComponent}
 ];
