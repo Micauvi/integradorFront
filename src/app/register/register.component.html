@@ -1,89 +1,127 @@
-<div class="container">
+<div class="formularioRegistro">
   <form
-     (ngSubmit)="agrUsuario($event)"
+    (ngSubmit)="agrUsuario($event)"
     [formGroup]="formularioUsuario"
     (ngSubmit)="contrIguales()"
-   
   >
-    <label for="nombre">Nombre</label>
-    <input
-      type="text"
-      name="nombre"
-      id="nombre"
-      placeholder="Juanito"
-      formControlName="nombre"
-    />
+    <h1 class="tituloRegistro">Crear Cuenta</h1>
+    <div class="contenedorInput">
+      <div>
+        <!-- NOMBRE -->
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Ej:Juan" formControlName="nombre" />
+        </mat-form-field>
+      </div>
 
-    <p *ngIf="formularioUsuario.get('nombre')?.errors?.['required']">
-      este campo es requerido
-    </p>
+      <div>
+        <!-- APELLIDO -->
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input matInput placeholder="Ej:Perez" formControlName="apellido" />
+        </mat-form-field>
+      </div>
 
-    <br />
+      <div>
+        <!-- USUARIO -->
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input matInput placeholder="Ej:Usuario" formControlName="usuario" />
+        </mat-form-field>
+      </div>
+      <!-- PAIS -->
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Pais</mat-label>
+          <mat-select formControlName="pais">
+            <mat-option value="Argentina">Argentina</mat-option>
+            <mat-option value="Brasil">Brasil</mat-option>
+            <mat-option value="Chile">Chile</mat-option>
+            <mat-option value="Uruguay">Uruguay</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- CIUDAD -->
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>ciudad</mat-label>
+          <mat-select formControlName="ciudad">
+            <mat-option value="Buenos Aires">Buenos Aires</mat-option>
+            <mat-option value="Brasilia">Brasilia</mat-option>
+            <mat-option value="Santiago de chile">Santiago de Chile</mat-option>
+            <mat-option value="Montevideo">Montevideo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="contenedorContrasenas">
+      <div>
+        <!-- CONTRASENA1 -->
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="contrasena"
+          />
 
-    <label for="apellido">Apellido</label>
-    <input
-      type="text"
-      name="apellido"
-      id="apellido"
-      placeholder="Perez"
-      formControlName="apellido"
-    />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
 
-    <br />
+        <p
+          *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']"
+        >
+          tiene que tener mas de 5
+        </p>
+      </div>
+      <div>
+        <!-- CONTRASENA2 -->
+        <mat-form-field appearance="fill">
+          <mat-label>Confirmar Contraseña</mat-label>
+          <input
+            matInput
+            [type]="hide2 ? 'password' : 'text'"
+            formControlName="contrasena2"
+          />
 
-    <label for="usuario">Nombre de Usuario</label>
-    <input type="text" name="usuario" id="usuario" formControlName="usuario" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide2 = !hide2"
+            [attr.aria-label]="'Hide2 password'"
+            [attr.aria-pressed]="hide2"
+          >
+            <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        
+        </mat-form-field>
+      </div>
+    </div>
+<!-- 
+       <p *ngIf="!contrasenasIguales">Las contraseñas tienen que ser iguales</p>
+       <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']">tiene que tener mas de 5</p> -->
+     
+    
+   
+      </div>
 
-    <br />
-
-    <label for="pais">pais</label>
-    <input type="text" name="pais" id="pais" formControlName="pais" />
-
-    <br />
-
-    <label for="ciudad">ciudad</label>
-    <input type="text" name="ciudad" id="ciudad" formControlName="ciudad" />
-
-    <br />
-
-    <label for="contrasena">Contraseña</label>
-    <input
-      type="password"
-      name="contrasena"
-      id="contrasena"
-      formControlName="contrasena"
-    />
-
-    <p
-      *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']"
+    <button
+      type="submit"
+      [disabled]="formularioUsuario.invalid"
+      [disabled]="contrIguales"
+      id="btnRegistrarse"
     >
-      tiene que tener mas de 5
-    </p>
-
-    <br />
-
-    <label for="repContrasena">Confirmar Contraseña</label>
-    <input
-      type="password"
-      name="repContrasena"
-      id="repContrasena"
-      formControlName="contrasena2"
-    />
-
-    <p
-      *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']"
-    >
-      tiene que tener mas de 5
-    </p>
-    <p *ngIf="!contrasenasIguales">Las contraseñas tienen que ser iguales</p>
-    <br />
-
-    <button type="submit" [disabled]="formularioUsuario.invalid">
       Registrarse
     </button>
-  </form>
-
-  <!-- https://desarrolloweb.com/articulos/servicios-angular.html
-    https://angular.io/tutorial/toh-pt4
-https://angular.io/guide/architecture-services -->
+  
+  <p class="parrafo">Ya estas registrado?</p>
+  <button routerLink="" id="btnISesion" >Iniciar Sesión</button>
+</form>
 </div>

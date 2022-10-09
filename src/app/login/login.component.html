@@ -1,32 +1,48 @@
-<div class="container-LogIn">
-  <form (ngSubmit)="InicioSesion($event)" [formGroup]="formularioUsuario" >
-    <label>
-      Nombre de Usuario
-      <input type="text" name="usuario" formControlName="usuario" />
-    </label>
-    <p *ngIf="formularioUsuario.get('nombre')?.errors?.['required']">
-      este campo es requerido
-    </p>
-    <br />
-    <label
-      >Contraseña
-      <input type="password" name="contrasena" formControlName="contrasena" />
-    </label>
-    <p *ngIf="formularioUsuario.get('contrasena')?.errors?.['required']">
-      este campo es requerido
-    </p>
-    <br />
-    <div>
-      <button type="submit" id="boton" >
-         Enviar
-      </button>
+<form
+(ngSubmit)="InicioSesion($event)"
+  [formGroup]="formularioUsuario"
+  class="formularioLogin"
+>
+  <h1 class="tituloLogin">Iniciar Sesión</h1>
+  <div class="contenedorLogin">
+    <div class="contenedorUsuario">
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Ej:Usuario" formControlName="usuario" />
+        <mat-icon matSuffix>account_circle</mat-icon>
+       
+      </mat-form-field>
+      <!-- <p *ngIf="formularioUsuario.get('nombre')?.errors?.['required']">este campo es requerido</p> -->
     </div>
 
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="contrasena"
+        />
+
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+     
+    </div>
+  </div>
+
+  <button type="submit" id="btnLogin" [disabled]="formularioUsuario.invalid">Enviar</button>
+
+  <div class="contenedorRegistro">
     <p>Aun no esta registrado?</p>
-  </form>
-  <nav>
-    <button routerLink="registro">
-      Registrarse
-    </button>
-  </nav>
-</div>
+    <button routerLink="registro" id="btnRegistro">Registrarse</button>
+  </div>
+  
+</form>

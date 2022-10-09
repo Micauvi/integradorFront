@@ -4,10 +4,11 @@ import {
   FormGroup,
   FormControl,
   Validators,
-  NgForm,
 } from '@angular/forms';
 import { CompanyService } from '../services/company.service';
 import { userLogin } from '../users/user';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,11 @@ import { userLogin } from '../users/user';
 })
 
 export class LoginComponent implements OnInit {
+  hide = true;
   constructor(
     private fb: FormBuilder,
-    private companiaServicio: CompanyService
+    private companiaServicio: CompanyService,
+    private router:Router
   ) {}
 
   formularioUsuario: FormGroup = this.fb.group({
@@ -27,18 +30,21 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {}
-  //inicio sesion
-
+ 
   InicioSesion(event: Event) {
     event.preventDefault();
-    const usuario: userLogin = {
+    const usuario: userLogin ={
       USUARIO: this.formularioUsuario.value.usuario,
       CONTRASENA: this.formularioUsuario.value.contrasena,
     };
-    this.companiaServicio.LogIn(usuario).subscribe(() => {
-      console.log('Se ha iniciado secion');
-    });
+    this.companiaServicio.LogIn(usuario).subscribe()
+      if (usuario.USUARIO){
+        this.router.navigate(['/account'])
+      }
+    }
+    
+    
   }
   //probando git
   
-}
+// }

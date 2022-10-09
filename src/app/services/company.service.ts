@@ -23,6 +23,12 @@ export class CompanyService {
   LogIn(usuario:userLogin):Observable<void>{
     return this.http.post<void>(this.API_URL + 'login', usuario); 
   }
+  Cuenta(usuario:userLogin):Observable<void>{
+    return this.http.get<void>(this.API_URL + 'account'); 
+  }
+  registradoOk():Observable<void>{
+    return this.http.get<void>(this.API_URL+ 'exitoso');
+  }
   
 
 

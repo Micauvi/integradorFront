@@ -11,7 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './services/company.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ToastrModule} from 'ngx-toastr';
+import {ReactiveFormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import { RegistradoCorrectoComponent } from './registrado-correcto/registrado-correcto.component';
+
 
 
 @NgModule({
@@ -20,6 +26,9 @@ import {ReactiveFormsModule} from '@angular/forms'
     RegisterComponent,
     LoginComponent,
     AccountComponent,
+    RegistradoCorrectoComponent,
+  
+    
     
   ],
   imports: [
@@ -28,7 +37,10 @@ import {ReactiveFormsModule} from '@angular/forms'
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule, MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    ToastrModule.forRoot(),
     ],
   providers: [CompanyService,], 
   bootstrap: [AppComponent],
