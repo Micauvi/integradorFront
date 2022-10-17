@@ -43,85 +43,70 @@
       </div>
       <!-- CIUDAD -->
       <div>
-        <mat-form-field appearance="fill">
-          <mat-label>ciudad</mat-label>
-          <mat-select formControlName="ciudad">
-            <mat-option value="Buenos Aires">Buenos Aires</mat-option>
-            <mat-option value="Brasilia">Brasilia</mat-option>
-            <mat-option value="Santiago de chile">Santiago de Chile</mat-option>
-            <mat-option value="Montevideo">Montevideo</mat-option>
-          </mat-select>
+        <mat-form-field appearance="outline">
+          <mat-label>Ciudad</mat-label>
+          <input matInput placeholder="Ej:Mendoza" formControlName="ciudad" />
         </mat-form-field>
       </div>
       <div class="contenedorContrasenas">
-      <div>
-        <!-- CONTRASENA1 -->
-        <mat-form-field appearance="fill">
-          <mat-label>Contraseña</mat-label>
-          <input
-            matInput
-            [type]="hide ? 'password' : 'text'"
-            formControlName="contrasena"
-          />
+        <div>
+          <!-- CONTRASENA1 -->
+          <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="contrasena"
+            />
 
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide"
-          >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        </mat-form-field>
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
 
-        <p
-          *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']"
-        >
-          tiene que tener mas de 5
-        </p>
+          
+        </div>
+        <div>
+          <!-- CONTRASENA2 -->
+          <mat-form-field appearance="fill">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input
+              matInput
+              [type]="hide2 ? 'password' : 'text'"
+              formControlName="contrasena2"
+            />
+
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide2 = !hide2"
+              [attr.aria-label]="'Hide2 password'"
+              [attr.aria-pressed]="hide2"
+            >
+              <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
       </div>
-      <div>
-        <!-- CONTRASENA2 -->
-        <mat-form-field appearance="fill">
-          <mat-label>Confirmar Contraseña</mat-label>
-          <input
-            matInput
-            [type]="hide2 ? 'password' : 'text'"
-            formControlName="contrasena2"
-          />
-
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="hide2 = !hide2"
-            [attr.aria-label]="'Hide2 password'"
-            [attr.aria-pressed]="hide2"
-          >
-            <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        
-        </mat-form-field>
-      </div>
+      
     </div>
-<!-- 
-       <p *ngIf="!contrasenasIguales">Las contraseñas tienen que ser iguales</p>
-       <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minLength(5)']">tiene que tener mas de 5</p> -->
-     
-    
-   
-      </div>
 
     <button
       type="submit"
       [disabled]="formularioUsuario.invalid"
-      [disabled]="contrIguales"
+      [disabled]="contrIguales()"
       id="btnRegistrarse"
     >
       Registrarse
     </button>
-  
-  <p class="parrafo">Ya estas registrado?</p>
-  <button routerLink="" id="btnISesion" >Iniciar Sesión</button>
-</form>
+
+    <p class="parrafo">Ya estas registrado?</p>
+    <button routerLink="" id="btnISesion">Iniciar Sesión</button>
+  </form>
 </div>

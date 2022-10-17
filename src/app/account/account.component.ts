@@ -1,27 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { userLogin } from '../users/user';
-import { CompanyService } from '../services/company.service'; 
+import { userLogin, user,user2 } from '../users/user';
+import { CompanyService } from '../services/company.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrls: ['./account.component.css'],
 })
 export class AccountComponent implements OnInit {
+  opened=false
+  public usuarios: user2[]=[]
+  private usuariosSubscriber!: Subscription
+ 
 
-  // constructor(private companiaServicio: CompanyService, private fb: FormBuilder) { }
-  // formularioUsuario: FormGroup = this.fb.group()
+  constructor(private companiaServicio: CompanyService, 
+    private fb:FormBuilder) {}
+  
+
+   
+  
 
   ngOnInit(): void {
+    this.listarUsuarios()
   }
-  // cuenta(event: Event) {
-  //   event.preventDefault();
-  //   const usuario: userLogin = {
-  //     USUARIO: this.formularioUsuario.value.usuario,
-  //     CONTRASENA: this.formularioUsuario.value.contrasena,
-  //   };
-  //   this.companiaServicio.registradoOk(usuario).subscribe()
-  // }
+  listarUsuarios(){
+    this.usuariosSubscriber = this.companiaServicio.cuentaUsuar()
+    .subscribe((data) => {
+      this.usuarios = data
+
+      console.log(data)
+    });
+  }
+   
+  
+
 
 }

@@ -6,22 +6,25 @@ import {
   Validators,
 } from '@angular/forms';
 import { CompanyService } from '../services/company.service';
-import { userLogin } from '../users/user';
+import { user, userLogin } from '../users/user';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-
 export class LoginComponent implements OnInit {
   hide = true;
+
+  private subscription: Subscription = new Subscription();
   constructor(
     private fb: FormBuilder,
     private companiaServicio: CompanyService,
-    private router:Router
+    private router: Router
   ) {}
 
   formularioUsuario: FormGroup = this.fb.group({
@@ -30,21 +33,13 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {}
- 
-  InicioSesion(event: Event) {
-    event.preventDefault();
-    const usuario: userLogin ={
+
+  InicioSesion() {
+    const usuario: userLogin = {
       USUARIO: this.formularioUsuario.value.usuario,
       CONTRASENA: this.formularioUsuario.value.contrasena,
     };
-    this.companiaServicio.LogIn(usuario).subscribe()
-      if (usuario.USUARIO){
-        this.router.navigate(['/account'])
-      }
-    }
-    
-    
+    this.companiaServicio.LogIn(usuario).subscribe();
+    this.router.navigate(['api/users']);
   }
-  //probando git
-  
-// }
+}

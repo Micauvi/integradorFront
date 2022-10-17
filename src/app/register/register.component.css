@@ -1,91 +1,89 @@
 .formularioRegistro {
-    width: 800px;
-    height: 1000px;
-    background: rgb(248, 245, 245);
-    color: rgb(6, 6, 6);
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 70px 30px;
-    border-radius: 61px;
-    border-radius: 19px;
-    
-    box-shadow: -20px 20px 40px #9f9696, 20px -20px 40px #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-  }
-.tituloRegistro{
-    margin-bottom: 40px;
-    font-size: 2.3rem;
+  width: 800px;
+  height: 1000px;
+  background: rgb(248, 245, 245);
+  color: rgb(6, 6, 6);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  border-radius: 61px;
+  border-radius: 19px;
+
+  box-shadow: -20px 20px 40px #9f9696, 20px -20px 40px #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.tituloRegistro {
+  margin-bottom: 40px;
+  font-size: 2.3rem;
 }
 #btnRegistrarse {
-    padding: 1.3em 3em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #ebc9c9;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    width: 200px;
-    /* margin-bottom: 200px; */
-    
-  }
-  
-#btnRegistrarse:hover {
-    background-color: #db867b;
-    box-shadow: 0px 15px 20px #db867bb8;
-    color: #fff;
-    transform: translateY(-7px);
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #ebc9c9;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+  /* margin-bottom: 200px; */
 }
-  
+
+#btnRegistrarse:hover {
+  background-color: #db867b;
+  box-shadow: 0px 15px 20px #db867bb8;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
 #btnRegistrarse:active {
-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 #btnISesion {
-    padding: 1.3em 3em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #ebc9c9;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    width: 200px;
-    /* margin-bottom: 200px; */
-  }
-  
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #ebc9c9;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+  /* margin-bottom: 200px; */
+}
+
 #btnISesion:hover {
-    background-color: #db867b;
-    box-shadow: 0px 15px 20px #db867bb8;
-    color: #fff;
-    transform: translateY(-7px);
+  background-color: #db867b;
+  box-shadow: 0px 15px 20px #db867bb8;
+  color: #fff;
+  transform: translateY(-7px);
 }
-  
+
 #btnISesion:active {
-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
-.parrafo{
-   
-    font-size: 15px;
-    /* text-align: center; */
+.parrafo {
+  font-size: 15px;
+  /* text-align: center; */
 }
-.contenedorContrasenas button{
-    border: none
+.contenedorContrasenas button {
+  border: none;
 }

@@ -11,14 +11,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './services/company.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ToastrModule} from 'ngx-toastr';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
-import { RegistradoCorrectoComponent } from './registrado-correcto/registrado-correcto.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 
-
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -26,10 +29,6 @@ import { RegistradoCorrectoComponent } from './registrado-correcto/registrado-co
     RegisterComponent,
     LoginComponent,
     AccountComponent,
-    RegistradoCorrectoComponent,
-  
-    
-    
   ],
   imports: [
     BrowserModule,
@@ -37,13 +36,18 @@ import { RegistradoCorrectoComponent } from './registrado-correcto/registrado-co
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule, MatIconModule,
+    FormsModule,
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
     ToastrModule.forRoot(),
-    ],
-  providers: [CompanyService,], 
+    MatListModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+  ],
+  providers: [CompanyService],
   bootstrap: [AppComponent],
- 
 })
-export class AppModule { }
+export class AppModule {}

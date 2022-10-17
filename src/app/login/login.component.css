@@ -1,7 +1,7 @@
 .formularioLogin {
   width: 400px;
   height: 600px;
-  background:rgb(248, 245, 245);
+  background: rgb(248, 245, 245);
   color: rgb(6, 6, 6);
   top: 50%;
   left: 50%;
@@ -10,7 +10,7 @@
   box-sizing: border-box;
   padding: 70px 30px;
   border-radius: 19px;
-  
+
   box-shadow: -20px 20px 40px #9f9696, 20px -20px 40px #ffffff;
   display: flex;
   flex-direction: column;
@@ -46,44 +46,42 @@
 #btnLogin:active {
   transform: translateY(-1px);
 }
-.tituloLogin{
-    margin-bottom: 40px;
-    font-size: 2.3rem;
+.tituloLogin {
+  margin-bottom: 40px;
+  font-size: 2.3rem;
 }
 
 #btnRegistro {
-    padding: 1.3em 3em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #ebc9c9;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    width: 200px;
-    
-  }
-  
-  #btnRegistro:hover {
-    background-color: #db867b;
-    box-shadow: 0px 15px 20px #db867bb8;
-    color: #fff;
-    transform: translateY(-7px);
-  }
-  
-  #btnRegistro:active {
-    transform: translateY(-1px);
-  }
-  .contenedorRegistro p {
-    font-size: 15px;
-    text-align: center;
-  }
-  .example-container button{
-   border: none;
-  }
-  
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #ebc9c9;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+}
+
+#btnRegistro:hover {
+  background-color: #db867b;
+  box-shadow: 0px 15px 20px #db867bb8;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#btnRegistro:active {
+  transform: translateY(-1px);
+}
+.contenedorRegistro p {
+  font-size: 15px;
+  text-align: center;
+}
+.example-container button {
+  border: none;
+}

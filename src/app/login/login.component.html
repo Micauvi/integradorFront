@@ -1,5 +1,5 @@
 <form
-(ngSubmit)="InicioSesion($event)"
+  (ngSubmit)="InicioSesion()"
   [formGroup]="formularioUsuario"
   class="formularioLogin"
 >
@@ -10,9 +10,7 @@
         <mat-label>Usuario</mat-label>
         <input matInput placeholder="Ej:Usuario" formControlName="usuario" />
         <mat-icon matSuffix>account_circle</mat-icon>
-       
       </mat-form-field>
-      <!-- <p *ngIf="formularioUsuario.get('nombre')?.errors?.['required']">este campo es requerido</p> -->
     </div>
 
     <div class="example-container">
@@ -34,15 +32,15 @@
           <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
       </mat-form-field>
-     
     </div>
   </div>
 
-  <button type="submit" id="btnLogin" [disabled]="formularioUsuario.invalid">Enviar</button>
+  <button type="submit" id="btnLogin" [disabled]="formularioUsuario.invalid">
+    Enviar
+  </button>
 
   <div class="contenedorRegistro">
     <p>Aun no esta registrado?</p>
     <button routerLink="registro" id="btnRegistro">Registrarse</button>
   </div>
-  
 </form>

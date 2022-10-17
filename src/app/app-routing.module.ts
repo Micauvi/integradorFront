@@ -4,20 +4,17 @@ import { AccountComponent } from './account/account.component';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { RegistradoCorrectoComponent } from './registrado-correcto/registrado-correcto.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'login',component: LoginComponent},
-  {path: 'api/user', component: RegisterComponent},
-  {path:'account', component: AccountComponent},
-  {path:'registro', component:RegisterComponent},
-  {path:'exitoso',component:RegistradoCorrectoComponent}
-
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'api/user', component: RegisterComponent },
+  { path: 'api/users', component: AccountComponent },
+  { path: 'registro', component: RegisterComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
